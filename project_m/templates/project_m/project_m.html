@@ -1,0 +1,77 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <script src="https://use.fontawesome.com/c77bd8fd2e.js"></script>
+    <title>Marvel</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Marvel characters
+        </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    {{ form.name }}
+                </div>
+                <div class="control">
+                    <button type="submit" class="button is-info">
+                        Add Hero
+                    </button>
+                </div>
+            </div>
+            {% if message %}
+            <div class="notification {{ message_class }}">{{ message }}</div>
+            {% endif %}
+        </form>
+    </header>
+    <main>
+        {% for hero in heroes_data %}
+        <section>
+            <h1>{{ hero.name }}</h1>
+            <div class="description">
+                <img src="{{ hero.thumbnail }}.jpg" alt="Image">
+                <p> {{ hero.description }} </p>
+            </div>
+            <div class='com'>
+                <p>
+                    Comics:
+                </p>
+                <button class='comics_button button'>SHOW LIST</button>
+
+                <div class="comics">
+                    <ul class='comics_list'>
+                        {% for key in hero.comics %}
+
+                        {% for i, j in key.items %}
+                        <li>
+                            {{j}}
+                        </li>
+                        {% endfor %}
+
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="button_delete button">
+                <a href="{% url 'delete_hero' hero.name %}"> DELETE CHARACTER
+                </a>
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

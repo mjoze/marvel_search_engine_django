@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    margin: 2vw;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 5vh auto 5vh;
+    text-transform: uppercase;
+    font-size: 72px;
+    font-weight: 900;
+
+
+}
+
+header form {
+    margin-bottom: 5vh;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+section {
+    flex: 75%;
+    margin-bottom: 5vw;
+}
+
+section h1 {
+
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 2vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    margin-left: 5vw;
+    color: red;
+}
+
+section img {
+    width: 20vw;
+    height: 20vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
+}
+
+div a {
+    color: red;
+}
+
+.com {
+    margin-top: 2vw;
+    margin-left: 5vw;
+}
+
+.com p {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 1vw;
+}
+
+.comics {
+    display: none;
+}
+
+.comics li:nth-child(odd) {
+    display: none;
+    font-size: 8px;
+}
+
+.comics li {
+    padding-left: 5vw;
+    cursor: pointer;
+}
+
+.active {
+    display: block;
+}
+
+
+
+.line_through {
+    text-decoration: line-through;
+}
+
+
+.description {
+    display: flex;
+    font-size: 16px;
+}
+
+.button_delete {
+    margin-top: 1vw;
+    margin-left: 5vw;
+}
